@@ -1,154 +1,179 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Pour Nandrianina</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pour Toi Nandrianina ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-
-    * {
+    html, body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      height: 100%;
+      overflow: hidden;
+      background: url('https://i.imgur.com/fONnBXI.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Great Vibes', cursive;
+      color: white;
+      text-align: center;
     }
 
-    body {
-      background: radial-gradient(circle at top, #2c003e 0%, #000 100%);
-      font-family: 'Great Vibes', cursive;
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      overflow: hidden;
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 1;
+    }
+
+    .content {
       position: relative;
+      z-index: 2;
+      top: 30%;
+      transform: translateY(-30%);
+      max-width: 90%;
+      margin: auto;
     }
 
     h1 {
-      font-size: 3.2em;
-      margin-bottom: 20px;
-      animation: fadeInDown 2s ease-in-out;
+      font-size: 4em;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    .highlight {
+      color: #ffb3d9;
+      animation: glow 2s ease-in-out infinite alternate;
     }
 
     p {
-      font-size: 1.6em;
-      max-width: 90%;
-      margin: 10px 0;
-      animation: fadeInUp 2.5s ease-in-out;
+      font-size: 1.8em;
+      opacity: 0;
+      animation: fadeInText 3s ease forwards;
+      animation-delay: 2s;
     }
 
-    .glow {
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInText {
+      to { opacity: 1; }
+    }
+
+    @keyframes glow {
+      0% { text-shadow: 0 0 10px #ff99cc; }
+      100% { text-shadow: 0 0 20px #ff66b3, 0 0 30px #ff66b3; }
+    }
+
+    .play-button, .reveal-button {
       position: absolute;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle, rgba(255, 0, 128, 0.05) 0%, transparent 70%);
-      z-index: -1;
-      animation: pulse 6s infinite;
+      bottom: 30px;
+      border: none;
+      border-radius: 50px;
+      padding: 12px 20px;
+      background-color: rgba(255, 192, 203, 0.8);
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      z-index: 3;
+      box-shadow: 0 0 10px pink;
+      transition: transform 0.3s ease;
     }
 
-    @keyframes fadeInDown {
-      0% { opacity: 0; transform: translateY(-30px); }
-      100% { opacity: 1; transform: translateY(0); }
+    .play-button { right: 30px; }
+    .reveal-button { left: 30px; }
+
+    .play-button:hover, .reveal-button:hover {
+      transform: scale(1.1);
     }
 
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
+    .hidden-message {
+      display: none;
+      margin-top: 30px;
+      font-size: 1.5em;
+      animation: fadeInText 1.5s ease forwards;
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 0.6; }
-    }
-
+    /* Cœurs */
     .heart {
-      position: fixed;
-      top: -50px;
-      font-size: 24px;
-      animation: fall linear infinite;
-      color: #ff4d88;
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background-color: pink;
+      transform: rotate(45deg);
+      animation: fall 10s linear infinite;
     }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background-color: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -7.5px; left: 0; }
+    .heart::after  { top: 0; left: -7.5px; }
 
     @keyframes fall {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(120vh); opacity: 0; }
-    }
-
-    #surprise {
-      display: none;
-      font-size: 1.4em;
-      margin-top: 30px;
-      animation: fadeInUp 2s ease forwards;
-    }
-
-    button {
-      margin-top: 25px;
-      padding: 10px 20px;
-      font-size: 1em;
-      font-family: 'Great Vibes', cursive;
-      border: none;
-      border-radius: 8px;
-      background-color: #ff66a3;
-      color: white;
-      cursor: pointer;
-      animation: fadeInUp 3s ease-in-out;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #ff3385;
-    }
-
-    footer {
-      position: absolute;
-      bottom: 10px;
-      font-size: 1em;
-      opacity: 0.4;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 2.2em; }
-      p { font-size: 1.2em; }
+      0% {
+        top: -10%;
+        left: calc(100% * var(--rand));
+        opacity: 1;
+      }
+      100% {
+        top: 110%;
+        left: calc(100% * var(--rand) + 50px);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="glow"></div>
-  <h1>💖 Pour Nandrianina 💖</h1>
-  <p>Tu me manques tellement… 😢</p>
-  <p>Chaque instant loin de toi me rappelle combien je t’aime profondément. ❤️</p>
-  <p>Je garde espoir que nos chemins se recroisent bientôt. 💫</p>
 
-  <button onclick="showSurprise()">Je t’aime aussi 💌</button>
-  <div id="surprise">💖 Tu es la plus belle chose qui me soit arrivée. Je t'attendrai toujours. 💖</div>
+<div class="overlay"></div>
 
-  <footer>Créé avec amour</footer>
+<div class="content">
+  <h1><span class="highlight">Je t’aime</span>, même si tu en doutes parfois…</h1>
+  <p>Mais chaque battement de mon cœur te le crie en silence.</p>
 
-  <script>
-    // Générer des cœurs animés
-    const createHeart = () => {
-      const heart = document.createElement('div');
-      heart.classList.add('heart');
-      heart.innerText = '❤️';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.animationDuration = 2 + Math.random() * 3 + 's';
-      document.body.appendChild(heart);
+  <div id="secret" class="hidden-message">
+    💌 Tu doutes parfois de mes sentiments... mais regarde : tu es celle à qui je pense chaque jour.  
+    Celle pour qui j’ai créé tout ça.  
+    Celle que j’aime **vraiment**, profondément, sincèrement.  
+    Et rien ni personne ne pourra changer ça.  
+    Tu es **mon évidence**. 💖
+  </div>
+</div>
 
-      setTimeout(() => {
-        heart.remove();
-      }, 5000);
-    };
-    setInterval(createHeart, 300);
+<!-- Boutons -->
+<button class="play-button" onclick="playMusic()">▶️</button>
+<button class="reveal-button" onclick="showMessage()">💬 Clique ici</button>
 
-    // Afficher la surprise
-    function showSurprise() {
-      document.getElementById('surprise').style.display = 'block';
-    }
-  </script>
+<!-- Musique -->
+<audio id="loveSong" src="musique.mp3"></audio>
+
+<!-- Cœurs -->
+<script>
+  for (let i = 0; i < 50; i++) {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.setProperty("--rand", Math.random());
+    heart.style.animationDuration = 5 + Math.random() * 5 + "s";
+    document.body.appendChild(heart);
+  }
+
+  function playMusic() {
+    document.getElementById('loveSong').play();
+  }
+
+  function showMessage() {
+    document.getElementById('secret').style.display = 'block';
+  }
+</script>
+
 </body>
 </html>
