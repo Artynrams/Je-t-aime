@@ -1,154 +1,88 @@
-
 <!DOCTYPE html>
+<html lang="es">
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Pour Nandrianina</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+    <meta charset="UTF-8">
+    <title>Pour Nandrianina♥️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Nandrianina</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        body {
+            background: linear-gradient(to right, #ffdde1, #ee9ca7);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #1a1a1a, #000000);
+            font-family: 'Great Vibes', cursive;
+            color: #fff;
+            text-align: center;
+            overflow-x: hidden;
+        }
 
-    body {
-      background: radial-gradient(circle at top, #2c003e 0%, #000 100%);
-      font-family: 'Great Vibes', cursive;
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      overflow: hidden;
-      position: relative;
-    }
+        .container {
+            margin-top: 15%;
+            padding: 20px;
+        }
 
-    h1 {
-      font-size: 3.2em;
-      margin-bottom: 20px;
-      animation: fadeInDown 2s ease-in-out;
-    }
+        h1 {
+            font-size: 3em;
+            margin-top: 50px;
+            text-shadow: 2px 2px 5px #000;
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            animation: fadeIn 3s ease-in-out forwards;
+        }
 
-    p {
-      font-size: 1.6em;
-      max-width: 90%;
-      margin: 10px 0;
-      animation: fadeInUp 2.5s ease-in-out;
-    }
+        p {
+            font-size: 1.5em;
+            margin: 30px 0;
+            text-shadow: 1px 1px 3px #000;
+            margin-top: 20px;
+            animation: slideUp 4s ease-in-out forwards;
+            opacity: 0;
+        }
 
-    .glow {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle, rgba(255, 0, 128, 0.05) 0%, transparent 70%);
-      z-index: -1;
-      animation: pulse 6s infinite;
-    }
+        audio {
+            margin-top: 40px;
+            display: none;
+        }
 
-    @keyframes fadeInDown {
-      0% { opacity: 0; transform: translateY(-30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
 
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
+        @keyframes slideUp {
+            0% { transform: translateY(30px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 0.6; }
-    }
-
-    .heart {
-      position: fixed;
-      top: -50px;
-      font-size: 24px;
-      animation: fall linear infinite;
-      color: #ff4d88;
-    }
-
-    @keyframes fall {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(120vh); opacity: 0; }
-    }
-
-    #surprise {
-      display: none;
-      font-size: 1.4em;
-      margin-top: 30px;
-      animation: fadeInUp 2s ease forwards;
-    }
-
-    button {
-      margin-top: 25px;
-      padding: 10px 20px;
-      font-size: 1em;
-      font-family: 'Great Vibes', cursive;
-      border: none;
-      border-radius: 8px;
-      background-color: #ff66a3;
-      color: white;
-      cursor: pointer;
-      animation: fadeInUp 3s ease-in-out;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #ff3385;
-    }
-
-    footer {
-      position: absolute;
-      bottom: 10px;
-      font-size: 1em;
-      opacity: 0.4;
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 2.2em; }
-      p { font-size: 1.2em; }
-    }
-  </style>
+        .background-glow {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(ellipse at center, rgba(255,0,150,0.1) 0%, rgba(0,0,0,0.9) 100%);
+            z-index: -1;
+        }
+    </style>
 </head>
 <body>
-  <div class="glow"></div>
-  <h1>💖 Pour Nandrianina 💖</h1>
-  <p>Tu me manques tellement… 😢</p>
-  <p>Chaque instant loin de toi me rappelle combien je t’aime profondément. ❤️</p>
-  <p>Je garde espoir que nos chemins se recroisent bientôt. 💫</p>
-
-  <button onclick="showSurprise()">Je t’aime aussi 💌</button>
-  <div id="surprise">💖 Tu es la plus belle chose qui me soit arrivée. Je t'attendrai toujours. 💖</div>
-
-  <footer>Créé avec amour</footer>
-
-  <script>
-    // Générer des cœurs animés
-    const createHeart = () => {
-      const heart = document.createElement('div');
-      heart.classList.add('heart');
-      heart.innerText = '❤️';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.animationDuration = 2 + Math.random() * 3 + 's';
-      document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 5000);
-    };
-    setInterval(createHeart, 300);
-
-    // Afficher la surprise
-    function showSurprise() {
-      document.getElementById('surprise').style.display = 'block';
-    }
-  </script>
-</body>
-</html>
+    <h1>💖 Pour Nandrianina 💖</h1>
+    <p>Tu me manques énormément 😢</p>
+    <p>Je pense à toi chaque jour et je t'aime profondément ❤️💫</p>
+    <p>J'espère que cette petite surprise te fera sourire 😊🌸</p>
+    <audio controls autoplay loop>
+    <div class="background-glow"></div>
+    <div class="container">
+        <h1>💖 Pour Nandrianina 💖</h1>
+        <p>Tu me manques tellement... 😢</p>
+        <p>Mon cœur pense à toi à chaque instant. Je t’aime plus que les mots ne peuvent le dire ❤️</p>
+    </div>
+    <audio autoplay loop>
+        <source src="disfruto.mp3" type="audio/mpeg">
+        Ton navigateur ne supporte pas l'audio.
+    </audio>
